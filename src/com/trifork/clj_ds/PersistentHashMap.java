@@ -234,26 +234,6 @@ public Iterator<Map.Entry<K, V>> reverseIterator(){
 }
 
 
-public static final class EmptyIterator implements Iterator {
-
-	@Override
-	public boolean hasNext() {
-		return false;
-	}
-
-	@Override
-	public Object next() {
-		throw new IllegalStateException();
-	}
-
-	@Override
-	public void remove() {
-		throw new UnsupportedOperationException();
-	}
-	
-}
-
-
 public int count(){
 	return count;
 }
@@ -383,11 +363,6 @@ static final class TransientHashMap<K,V> extends ATransientMap<K,V> {
 		return persistentMap();
 	}
 
-}
-
-static interface Position {
-	INode getINode();
-	int getIndex();
 }
 
 static interface INode extends Serializable {
